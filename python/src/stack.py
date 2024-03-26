@@ -1,10 +1,11 @@
+"""implement stack"""
 from typing import List
 
 
-def execute(program: List[str]) -> List[int]:
+def execute(list: List[str]) -> List[int]:
     # initialize the stack
     stack = [1, 2, 3, 4, 5, 6, 7]
-    for instruction in program:
+    for instruction in list:
         if instruction == "peek":
             # print out the top item in stack
             if stack:
