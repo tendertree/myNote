@@ -14,21 +14,21 @@ def binary_search(arr: List[int], target: int) -> int:
     return -1
 
 def firstOccurence(arr:List[int],target:int)->int:
-        l,r=0,len(arr)-1
-        ans= -1
-        while l<=r:
-            mid = (l+r)
-            if arr[mid] == target:
-                ans=mid
-                r=mid-1
-            elif arr[mid]<target:
-                l=mid+1
-            else:
-                r=mid-1
-    
+    l,r=0,len(arr)-1
+    ans= -1
+    while l<=r:
+        mid = (l+r)
+        if arr[mid] == target:
+            ans=mid
+            r=mid-1
+        elif arr[mid]<target:
+            l=mid+1
+        else:
+            r=mid-1
+    return ans   
 
- __name__ == "__main__":
+if __name__ == "__main__":
     arr = [int(x) for x in input().split()]
     target = int(input())
     res = binary_search(arr, target)
- print(res)
+    print(res)
