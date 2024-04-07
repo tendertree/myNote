@@ -119,9 +119,31 @@ const Normalnumber1: number = 3232;
 const MUSIC_TITLE = Symbol("title"); //unique value
 console.log(Symbol("title") === MUSIC_TITLE); // false
 
+interface UnitTypeA {
+    value: "a" //unit type
+}
+interface UnitTypeB {
+    value: string//unit type
+}
+type Unions = UnitTypeA
 
 
+//ever eles condition case 
+//
+type priceSameple = "1000" | "2000"
 
+const checkTheOthersCases = (param: never) => {
+    throw new Error("never type")
+}
+
+const checkTypeCondition = (type: priceSameple) => {
+    if (type === "1000") { }
+    else {
+        //checkTheOthersCases(type); //if want to force to check all type case enable this line
+        return "errors";
+    }
+
+}
 
 /*
  *  loop
