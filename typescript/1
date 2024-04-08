@@ -1,13 +1,6 @@
 /*
  *   type
  */
-const bigNumber1: bigint = BigInt(999999999999);
-const number1: number = 3232;
-//number1+bigNumber1 (x) 
-
-const MUSIC_TITLE = Symbol("title"); //unique value
-console.log(Symbol("title") === MUSIC_TITLE); // false
-
 //nameing should be explicity 
 let d = 0 //x 
 let damagaAmount = 0 //O 
@@ -18,6 +11,47 @@ function getEmail(email: { name: string, age: number }) { }
 function getEmailTwo({ name, age }: { name: string, age: number }) { }
 
 
+//generic limit  -- extend can limit generic type
+interface TypeWithLength { length: number; }
+function getOnlyHasLengthProperty<T extends TypeWithLength>(arg: T): number { return 1 }
+
+const genericOccurError = <T>(arg: T): T[] => { return new Array(3) }
+const genericOccurNoError = <T extends {}>(arg: T): T[] => { return new Array(3) }
+
+//specify index type 
+const combileTuple: [number, string?, ...number[]] = [0, "hi", 1, 2];
+
+type Person = { name: string, age: number }
+type manager = { grade: number }
+type Example = { number: number, name: string, join: boolean }
+//type use cases
+type MarketManager = Person & manager
+type PersonOrManager = Person | manager
+type OneOfManager = Person[keyof Person] //name or age 
+
+type Subset<T> = { [K in keyof T]?: T[K] }
+
+//mapped type example
+const MappedExample = {
+    sheetBox: "box",
+    sheetCard: "card"
+}
+export type MappedExampleTyep = keyof typeof MappedExample
+//generated list by mapped type 
+type StoredType = {
+    [index in MappedExampleTyep as '${index}_MapType']: {
+        arg?: any;
+        isOpenned: boolean
+    }
+}
+
+//literal type
+type Area = "seoul" | "busan" | "daegu"
+type currentArea = '${Area}-city' //seoul-city ..
+
+
+
+const PersonKim: Subset<Example> = { name: "hello" };
 
 //type checking
 const Person = { name: "kim", age: 23 }
@@ -26,6 +60,62 @@ type getPersonType = typeof Person // person
 
 const getEmailValue = typeof getEmail // function
 type getEmailType = typeof getEmail //(email: { name: string, age: number }) => void
+
+/*
+ *  Type expansion
+ */
+//to expansion type and interface
+interface Base {
+    itemsName: string
+}
+interface BaseExpansion extends Base {
+    count: number
+}
+
+type BaseType = {
+    itemsName: string
+}
+type BaseExpansionType = { count: number; } & BaseType
+
+
+type IdType = string | number;
+type Numeric = number | boolean;
+
+type Universal = IdType & Numeric //only numebr & number possible 
+
+//in detcet whether type has specify properties
+function useInCondition(props: any) {
+    if ("number" in props) return
+}
+
+
+/*
+ *  Type Guard
+ */
+type TextError = {
+    Type: "Text";
+    Code: string;
+    msg: string;
+}
+
+/*
+ * basic type
+ */
+//enum
+const enum EnumNumber { one = 1, two = 2 }
+const myEnumNumber: EnumNumber = 2;
+
+
+const bigNumber1: bigint = BigInt(999999999999);
+const Normalnumber1: number = 3232;
+//number1+bigNumber1 (x) 
+
+const MUSIC_TITLE = Symbol("title"); //unique value
+console.log(Symbol("title") === MUSIC_TITLE); // false
+
+
+
+
 
 /*
  *  loop

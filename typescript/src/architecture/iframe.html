@@ -1,0 +1,33 @@
+<!--
+communication with iframe
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link href="css/style.css" rel="stylesheet">
+	<script>
+		setTimeout(() => {
+			iframe.contentWindow.postMessage('hello', '*');
+		})
+	</script>
+</head>
+
+<body>
+	<iframe src="https://github.com/" id="iframe"></iframe>
+</body>
+
+</html>
+
+<!--
+inside iframe, it can get message by eventListener
+-->
+<script>
+	window.addEventListener('message', (e) => {
+		console.log(e.data)
+	})
+
+</script>
