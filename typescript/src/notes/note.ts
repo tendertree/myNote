@@ -295,3 +295,57 @@ class Membership {
         return this.MemberShipmembers.slice(); // Returns a copy of the members array
     }
 }
+
+/*
+ * Type extend
+ */
+
+interface ISchoolLetter {
+    address: string
+}
+interface ICompanyLetter {
+    address: string
+}
+type MailMethod<T> = T extends "ICompanyLetter" ? ICompanyLetter : ISchoolLetter
+
+//infer
+type UnpackPromise<T> = T extends Promise<infer K>[] ? K : any;
+
+
+export interface SubMenu {
+    name: string;
+    path: string;
+}
+export interface MainMenu {
+    name: string;
+    path?: string;
+    subMenu?: SubMenu[];
+}
+
+export interface MainMenu {
+    subMenus?: ReadonlyArray<SubMenu>;
+}
+export type MenuItem = MainMenu | SubMenu;
+export const MenuList: MenuItem[] = [
+    {
+        name: "계정",
+        subMenus: [
+            {
+                name: "기기 관리",
+                path: "/device"
+            }
+        ]
+    }
+]
+export const menuList = [] as const
+type UnpackMenuNames<T extends ReadonlyArray<MenuItem>> =
+    T extends ReadonlyArray<infer U> ?
+    U extends MainMenu ?
+    U["subMenus"] extends infer V ?
+    V extends ReadonlyArray<SubMenu> ?
+    UnpackMenuNames<V> : U["name"] : never
+    : U extends SubMenu ? U["name"] : never : never;
+
+//type template
+type HeadNumber = 1 | 2 | 3 | 4;
+type HeaderTag = 'h${HeadNumber}'
