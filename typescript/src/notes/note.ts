@@ -349,3 +349,13 @@ type UnpackMenuNames<T extends ReadonlyArray<MenuItem>> =
 //type template
 type HeadNumber = 1 | 2 | 3 | 4;
 type HeaderTag = 'h${HeadNumber}'
+
+//custrom PickOne type 
+type PickOne<T> = {
+    [P in keyof T]: Record<P, T[P]> &
+    Partial<Record<Exclude<keyof T, P>, undefined>>;
+}[keyof T];
+
+
+//type CardOrAccount = PickOne<A & B>;
+
