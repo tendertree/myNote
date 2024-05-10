@@ -1,0 +1,6 @@
+class Counter<T> {
+  private counts: Map<T, number>;
+  constructor(parameters) {
+    this.counts = new Map<T, number>();
+  }
+}
