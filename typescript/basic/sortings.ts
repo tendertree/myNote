@@ -22,7 +22,7 @@ function merge(unsortedList: number[]): number[] {
   const mergedLeft = merge(left);
   const mergedRight = merge(right);
 
-  return mergeLists(mergedLeft, mergedRight);
+  return mergedLeft.concat(mergedRight);
 }
 
 function quick(left: number[], right: number[]): number[] {
