@@ -20,3 +20,7 @@ export class Counter<T> {
     return [...this.counts.entries()];
   }
 }
+
+export const split = (s: string) => {
+  return s == "" ? [] : s.split("");
+};

@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"module": "deno",
+		"target": "esnext",
+		"baseUrl": ".",
+		"paths": {}
+	}
+}

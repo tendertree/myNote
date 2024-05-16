@@ -19,4 +19,3 @@ function combinations<T>(array: T[], n: number): T[][] {
 
   return result;
 }
-
