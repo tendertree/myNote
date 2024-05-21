@@ -19,3 +19,12 @@ function combinations<T>(array: T[], n: number): T[][] {
 
   return result;
 }
+
+function getEvenNUmberSomeBelowN(n: number) {
+  return Array
+    .from({ length: n / 2 }, (_, i) => (i + 1) * 2)
+    .reduce(
+      (acc, curr) => acc + curr ** 2,
+      0,
+    );
+}
