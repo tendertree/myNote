@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WuYxM8Sf7zevT7j894m//5adHkG4DU6RFnDDfa5YxCp7mGPsEcvkN8PRpHIt9+Aa8O+Bt/Q/yI0zNNYL4vDynw==",
+  "success": true,
+  "projectFilePath": "/home/tree/study/myNote/myNote.csproj",
+  "expectedPackageFiles": [
+    "/home/tree/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.5/microsoft.aspnetcore.app.ref.8.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

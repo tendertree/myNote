@@ -2,7 +2,7 @@ public class LevelManager : MonoBehaviour{
 public static LevelManger Instance;
 [SerializedField]private GameObject _loaderCanvas;
 [SerializedField]private Image _progressBar;    
-    private float target;
+      private float target;
     void Awake()
     {
         if(Instance =null){
