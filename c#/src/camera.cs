@@ -1,4 +1,4 @@
- public Transform cameraTransform;
+public Transform cameraTransform;
 public float fastSpeed; //3
 public float normalSpeed;  //0.5
 public float movementSpeed; //1
@@ -117,4 +117,4 @@ void HandleMovement()
     transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime);
     cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, newZoom, Time.deltaTime * movementSpeed);
 }
-   }
+
