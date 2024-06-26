@@ -162,3 +162,18 @@ public class ObjectDatabaseSo : ScriptableObject
     public List<ObjectData> objectsData;
 
 }
+
+
+private T findNear()
+{
+ Transform cur = transform;
+ RaycastHit hit;
+ var forward = transfrom.forward;
+ Ray ray = new Ray(cur.position,forward);
+ if(Physics.Raycast(ray,out hit, 1f))
+ {
+   T item = hit.collider.GetComponent<T>();
+   if (item !=null) return item 
+ }
+ return null
+}
