@@ -35,4 +35,5 @@ public partial struct SpawnerSystem : ISystem
             spawner.ValueRW.NextSpawnTime = (float)SystemAPI.Time.ElapsedTime + spawner.ValueRO.SpawnRate;
         }
     }
+
 }
