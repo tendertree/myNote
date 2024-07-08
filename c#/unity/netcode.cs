@@ -15,7 +15,6 @@ public struct NetString:INetworkSerializable, System.IEquatable<NetString>{
         }
 
 
-	//Connection
 using System;
 using Unity.Entities;
 using Unity.NetCode;
@@ -29,4 +28,5 @@ public class GameBootstrap : ClientServerBootstrap
         return base.Initialize(defaultWorldName); // Use the regular bootstrap
     }
 }
+
 
