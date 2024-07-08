@@ -13,3 +13,20 @@ public struct NetString:INetworkSerializable, System.IEquatable<NetString>{
         if(String.Equals(other.st,st,StringComparision.CurrentCultureIgnoreCase)) return true;
         retrun false;
         }
+
+
+	//Connection
+using System;
+using Unity.Entities;
+using Unity.NetCode;
+
+[UnityEngine.Scripting.Preserve]
+public class GameBootstrap : ClientServerBootstrap
+{
+    public override bool Initialize(string defaultWorldName)
+    {
+        AutoConnectPort = 7979; // Enabled auto connect
+        return base.Initialize(defaultWorldName); // Use the regular bootstrap
+    }
+}
+
